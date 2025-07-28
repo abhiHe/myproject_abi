@@ -1,85 +1,66 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './App.css';
 
-export const ProfileCard = () => {
-    var image = require('./images/images.jpeg');
+const TransactionItem = memo(({ name, amount, date, image }) => (
+  <div className='col-12 mb-3 border-bottom-gray'>
+    <div className='row align-items-center'>
+      <div className="col-2 col-sm-1">
+        <img 
+          src={image} 
+          width="40" 
+          height="40"
+          className="rounded-circle"
+          alt={`${name} profile`}
+          loading="lazy"
+        />
+      </div>
+      <div className="col-6 col-sm-8">
+        <h3 className="mb-1">{name}</h3>
+      </div>
+      <div className="col-4 col-sm-3 text-end">
+        <h4 className="mb-1">{amount}</h4>
+        <p className="mb-0 small text-muted">{date}</p>
+      </div>
+    </div>
+  </div>
+));
+
+export const ProfileCard = memo(() => {
+  const image = require('./images/images.jpeg');
+
+  const transactions = [
+    { id: 1, name: "Emma Richardson", amount: "+$75.00", date: "19 Aug 2024" },
+    { id: 2, name: "John Smith", amount: "-$25.00", date: "18 Aug 2024" },
+    { id: 3, name: "Sarah Wilson", amount: "+$150.00", date: "17 Aug 2024" },
+    { id: 4, name: "Mike Johnson", amount: "-$45.00", date: "16 Aug 2024" }
+  ];
 
   return (
-    <div className="card p-4">
+    <div className="card p-3 p-md-4">
+      <div className="row align-items-center mb-3">
+        <div className="col-8">
+          <h2 className="mb-0">Transactions</h2>
+        </div>
+        <div className="col-4 text-end">
+          <a href="#" className="text-muted text-decoration-none nav-transition">
+            View all <i className="bi bi-caret-right"></i>
+          </a>
+        </div>
+      </div>
+
       <div className="row">
-      <div className="col-lg-8 col-md-8 mobileView60">
-        <h2>Transitions</h2>
-        </div>
-        <div className="col-lg-4 col-md-4 col-xs-5 mobileView40">
-          <a href="#" className="text-muted text-decoration-none">View all <i className="bi bi-caret-right text-gray"></i></a>
-        </div>
-        
-
-        <div className='col-lg-12 mt-3  border-bottom-gray'>
-            <div className='row '>
-            <div className="col-lg-1 col-md-1 mobileView10">
-          <img src={image} width="40px" alt="icon" />
-        </div>
-        <div className="col-lg-9 col-md-9 col-sm-9 mobileView70">
-            <h3>Emma Richardson</h3>
-        </div>
-        <div className="col-lg-2 col-md-2 col-sm-2 mobileView20">
-            <h4>+$75.00</h4>
-            <p>19 Aug 2024</p>
-        </div>
-            </div>
-        </div>
-
-        <div className='col-12 mt-3  border-bottom-gray'>
-            <div className='row '>
-            <div className="col-1">
-          <img src={image} width="40px" alt="icon" />
-        </div>
-        <div className="col-9">
-            <h3>Emma Richardson</h3>
-        </div>
-        <div className="col-2">
-            <h4>+$75.00</h4>
-            <p>19 Aug 2024</p>
-        </div>
-            </div>
-        </div>
-        <div className='col-12 mt-3  border-bottom-gray'>
-            <div className='row '>
-            <div className="col-1">
-          <img src={image} width="40px" alt="icon" />
-        </div>
-        <div className="col-9">
-            <h3>Emma Richardson</h3>
-        </div>
-        <div className="col-2">
-            <h4>+$75.00</h4>
-            <p>19 Aug 2024</p>
-        </div>
-            </div>
-        </div>
- <div className='col-12 mt-3  border-bottom-gray'>
-            <div className='row '>
-            <div className="col-1">
-          <img src={image} width="40px" alt="icon" />
-        </div>
-        <div className="col-9">
-            <h3>Emma Richardson</h3>
-        </div>
-        <div className="col-2">
-            <h4>+$75.00</h4>
-            <p>19 Aug 2024</p>
-        </div>
-            </div>
-        </div>
-
-
-
-
-       
+        {transactions.map(transaction => (
+          <TransactionItem
+            key={transaction.id}
+            name={transaction.name}
+            amount={transaction.amount}
+            date={transaction.date}
+            image={image}
+          />
+        ))}
       </div>
     </div>
   );
-};
+});
 
 export default ProfileCard;

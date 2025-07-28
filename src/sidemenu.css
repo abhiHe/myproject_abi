@@ -1,12 +1,65 @@
-.nav-item.active {
-    background-color: white !important;
+
+.nav-link-active {
+  background-color: white !important;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.nav-link-active .nav-link {
+  color: black !important;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-link-active i {
+  color: black !important;
+}
+
+.nav-item .nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-bottom: 0.25rem;
+}
+
+.nav-item .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.nav-item .nav-link i {
+  transition: color 0.3s ease;
+}
+
+.nav-item .nav-link:hover i {
+  color: #ffffff !important;
+}
+
+/* Responsive sidebar adjustments */
+@media (max-width: 991.98px) {
+  .nav-item .nav-link {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .nav-item .nav-link {
+    padding: 0.4rem;
   }
   
-  .nav-item.active .nav-link {
-    color: black !important;
+  .nav-item .nav-link i {
+    font-size: 1.2rem;
   }
-  
-  .nav-item.active i {
-    color: black !important;
-  }
-  
+}
+
+/* Smooth transitions for better UX */
+.nav-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+.nav-link:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}

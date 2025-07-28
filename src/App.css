@@ -1,150 +1,239 @@
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography responsive scaling */
 h1 {
-    font-size: 20px;
-}
-h2{
-    font-size: 18px;
-}
-h4{
-    text-align: left;
-    padding-left: 10px;
-    font-size: 15px;
-    color:#555
-}
-h5{
-    text-align: left;
-    padding-left: 10px;
-    font-size: 16px;
-    font-weight: bold;
-}
-h6{
-    font-size: 30px;
-    padding-left: 20px;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
 }
 
-a {
-    color: #ccc;
-    text-decoration: none;
-}
-.padding-left-20 {
-    padding-left:20px;
-    padding-top: 10px;
-}
-.bg-gray {
-    background: #f9f4f4f2;
-    p {
-        padding-top :20px;
-        padding-left: 10px;
-    }
-    h3 {
-     padding-top :20px;
-     font-size: 18px; 
-     padding-left:25px
-        
-    }
+h2 {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
 }
 
+h3 {
+  font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 500;
+}
 
-
-.border-bottom-gray {
-    border-bottom:1px solid #ccc;
-    width:90%;
-    margin: 0 auto;
-    h3 {
-        font-size: 16px;
-        padding-top: 10px;
-    }
 h4 {
-    font-size: 16px;
-    font-weight: bold;
-    color: aqua;
-}
-}
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 1200px) { 
-    .mobileView10 {
-        width:10%
-    }
-    .mobileView20 {
-        width:20%
-    }
-
-    .mobileView30 {
-        width:30%
-    }
-    .mobileView40 {
-        width:40%
-    }
-    .mobileView50 {
-        width:50%
-    }
-    .mobileView60 {
-        width:60%
-    }
-    .mobileView70 {
-        width:70%
-    }
-    .mobileView80 {
-        width:80%
-    }
-    .mobileView90 {
-        width:90%
-    }
-    .mobileView100 {
-        width:100%
-    }
-    .custom-mt-3{
-        margin-top:30px
-    }
-    .custom-mt-2{
-        margin-top:20px
-    }
-    
+  text-align: left;
+  padding-left: 10px;
+  font-size: clamp(13px, 1.5vw, 16px);
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
-@media only screen and (min-width: 306px) and (max-width: 767px) { 
-    .mobileView10 {
-        width:10%
-    }
-    .mobileView20 {
-        width:20%
-    }
-
-    .mobileView30 {
-        width:30%
-    }
-    .mobileView40 {
-        width:40%
-    }
-    .mobileView50 {
-        width:50%
-    }
-    .mobileView60 {
-        width:60%
-    }
-    .mobileView70 {
-        width:70%
-    }
-    .mobileView80 {
-        width:80%
-    }
-    .mobileView90 {
-        width:90%
-    }
-    .mobileView100 {
-        width:100%
-    }
-    .custom-mt-3{
-        margin-top:30px
-    }
-    .custom-mt-2{
-        margin-top:20px
-    }
-    .sm-font{
-        font-size: 7px;
-    }
-    
+h5 {
+  text-align: left;
+  padding-left: 10px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
+h6 {
+  font-size: clamp(24px, 4vw, 32px);
+  padding-left: 20px;
+  margin-bottom: 0.5rem;
+}
 
+/* Responsive card styles */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved link styles */
+a {
+  color: #6c757d;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #495057;
+}
+
+/* Utility classes */
+.padding-left-20 {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+/* Enhanced background styles */
+.bg-gray {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.bg-gray p {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.bg-gray h3 {
+  padding-top: 10px;
+  font-size: clamp(16px, 2vw, 20px);
+  padding-left: 15px;
+  margin-bottom: 0.5rem;
+}
+
+/* Border styles */
+.border-bottom-gray {
+  border-bottom: 1px solid #dee2e6;
+  width: 100%;
+  margin: 0 auto 1rem auto;
+  padding-bottom: 1rem;
+}
+
+.border-bottom-gray h3 {
+  font-size: clamp(14px, 1.8vw, 18px);
+  padding-top: 5px;
+  margin-bottom: 0.25rem;
+}
+
+.border-bottom-gray h4 {
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 0.25rem;
+}
+
+.border-bottom-gray p {
+  font-size: clamp(12px, 1.4vw, 14px);
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+/* Responsive image styles */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom spacing utilities */
+.custom-mt-2 {
+  margin-top: 1rem;
+}
+
+.custom-mt-3 {
+  margin-top: 1.5rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .card {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem !important;
+  }
+  
+  .bg-gray {
+    padding: 0.75rem;
+  }
+  
+  .custom-mt-2 {
+    margin-top: 0.75rem;
+  }
+  
+  .custom-mt-3 {
+    margin-top: 1rem;
+  }
+  
+  .border-bottom-gray {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .mobileView10 { width: 10%; }
+  .mobileView20 { width: 20%; }
+  .mobileView30 { width: 30%; }
+  .mobileView40 { width: 40%; }
+  .mobileView50 { width: 50%; }
+  .mobileView60 { width: 60%; }
+  .mobileView70 { width: 70%; }
+  .mobileView80 { width: 80%; }
+  .mobileView90 { width: 90%; }
+  .mobileView100 { width: 100%; }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .sidebar-transition {
+    transition: width 0.3s ease;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 575.98px) {
+  .sm-font {
+    font-size: 10px;
+  }
+  
+  .mobileView10 { width: 10%; }
+  .mobileView20 { width: 20%; }
+  .mobileView30 { width: 30%; }
+  .mobileView40 { width: 40%; }
+  .mobileView50 { width: 50%; }
+  .mobileView60 { width: 60%; }
+  .mobileView70 { width: 70%; }
+  .mobileView80 { width: 80%; }
+  .mobileView90 { width: 90%; }
+  .mobileView100 { width: 100%; }
+  
+  /* Stack balance cards vertically on very small screens */
+  .balance-cards .col-lg-4 {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Performance improvements */
+.chart-container {
+  will-change: transform;
+  contain: layout;
+}
+
+/* Smooth transitions for better UX */
+.nav-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+.card:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .d-lg-none,
+  .customShow {
+    display: none !important;
+  }
+}
