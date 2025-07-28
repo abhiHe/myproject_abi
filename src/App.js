@@ -47,7 +47,7 @@ export const App = () => {
     <div className="container-fluid">
       <div className="row">
         {/* Sidebar */}
-        <div className="col-lg-2 col-md-2 pt-3 d-none d-lg-block bg-dark vh-100 p-0 sidebar-transition">
+        <div className="col-lg-2 col-md-2 pt-3 d-none d-lg-block bg-dark vh-100 p-0 sidebar-transition" id="sidebar-container">
           <Sidebar />
         </div>
 
