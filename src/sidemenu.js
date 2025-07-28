@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './sidemenu.css';
 
-const Sidebar = () => {
+const Sidebar = ({ onMinimizeChange }) => {
   const [isMinimized, setIsMinimized] = useState(false);
 
   const toggleMinimize = () => {
-    setIsMinimized(!isMinimized);
+    const newMinimizedState = !isMinimized;
+    setIsMinimized(newMinimizedState);
+    if (onMinimizeChange) {
+      onMinimizeChange(newMinimizedState);
+    }
   };
   return (
     <div className={`bg-dark text-white d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 vh-100 ${isMinimized ? 'sidebar-minimized' : ''}`}>

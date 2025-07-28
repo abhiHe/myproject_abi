@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import Sidebar from "./sidemenu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonutChart from "./DonutCharts";
@@ -43,16 +43,18 @@ const BillItem = memo(({ title, amount, color = 'red' }) => (
 ));
 
 export const App = () => {
+  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
+
   return (
     <div className="container-fluid">
       <div className="row">
         {/* Sidebar */}
-        <div className="col-lg-2 col-md-2 pt-3 d-none d-lg-block bg-dark vh-100 p-0 sidebar-transition" id="sidebar-container">
-          <Sidebar />
+        <div className={`pt-3 d-none d-lg-block bg-dark vh-100 p-0 sidebar-transition ${isSidebarMinimized ? 'sidebar-minimized-container' : 'col-lg-2 col-md-2'}`} id="sidebar-container">
+          <Sidebar onMinimizeChange={setIsSidebarMinimized} />
         </div>
 
         {/* Main Content */}
-        <div className="col-lg-10 col-md-12 col-sm-12 p-3 p-md-4">
+        <div className={`p-3 p-md-4 ${isSidebarMinimized ? 'content-expanded' : 'col-lg-10 col-md-12 col-sm-12'}`}>
           <div className="row">
             <div className="col-12">
               <h1 className="mb-4">Overview</h1>

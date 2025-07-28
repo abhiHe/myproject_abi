@@ -188,6 +188,21 @@ img {
   .sidebar-transition {
     transition: width 0.3s ease;
   }
+  
+  .sidebar-minimized-container {
+    width: 80px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+    flex: 0 0 80px !important;
+  }
+  
+  .content-expanded {
+    width: calc(100% - 80px) !important;
+    max-width: calc(100% - 80px) !important;
+    flex: 0 0 calc(100% - 80px) !important;
+    margin-left: 0 !important;
+    transition: width 0.3s ease, max-width 0.3s ease;
+  }
 }
 
 /* Extra small devices */
